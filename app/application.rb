@@ -8,8 +8,11 @@ class Application
       item_name = req.path.split("/items/").last
       p @@items
       p item = @@items.find{|i| i.name == item_name}
-      
-      #resp.write item.price
+      if item == nil
+        resp.status "Item is not "
+      else
+        resp.write item.price
+      end
       
     else
       resp.write "Route not found"
