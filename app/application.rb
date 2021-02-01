@@ -5,14 +5,16 @@ class Application
     req = Rack::Request.new(env)
     
     if req.path.match(/items/)
-      p item_name = req.path.split("/items/").last
+      item_name = req.path.split("/items/").last
       
-      if @@items.include?(item_name)
-        p item_name
-      else
-        resp.write "Item is not there"
-        resp.status = 400
-      end
+      
+      
+      #if @@items.include?(item_name)
+       # p item_name
+      #else
+       # resp.write "Item is not there"
+        #resp.status = 400
+      #end
       
     else
       resp.write "Route not found"
