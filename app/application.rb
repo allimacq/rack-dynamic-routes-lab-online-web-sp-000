@@ -8,14 +8,10 @@ class Application
       item_name = req.path.split("/items/").last
       p item_name
       p @@items
-      p @@items.include?(item_name)
+    
+      item = @@items.find{|i| i.name == item_name}
       
-      #if @@items.include?(item_name)
-       # p item_name
-      #else
-       # resp.write "Item is not there"
-        #resp.status = 400
-      #end
+      resp.write item.price
       
     else
       resp.write "Route not found"
