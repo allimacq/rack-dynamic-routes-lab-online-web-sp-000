@@ -7,6 +7,7 @@ class Application
     if req.path.match(/items/)
       item_name = req.path.split("/items/").last
       p item_name
+      p @@items
       p @@items.include?(item_name)
       
       #if @@items.include?(item_name)
