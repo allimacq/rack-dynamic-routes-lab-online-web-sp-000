@@ -9,7 +9,8 @@ class Application
       p @@items
       p item = @@items.find{|i| i.name == item_name}
       if item == nil
-        resp.status "Item is not "
+        resp.write "Item not found"
+        resp.status 400
       else
         resp.write item.price
       end
